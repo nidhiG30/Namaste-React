@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
     <title>Namaste React</title>
-</head>
-<body>
-    <!-- Creating an HTML element -->
-    <!-- <h1>Namaste Everyone!</h1> -->
+  </head>
+  <body>
+    <div id="root">
+      <h1 id="title">Not Rendered</h1>
+      <!-- "Not Rendered": because if we don't pass proper keyword to render, react will by default show Not Rendered on the page. -->
+    </div>
+    <!-- Created to use with regards to see in DOM -->
 
-    <!-- Create HTML element using <script> tag -->
-    <div id="root"></div> <!-- Created to use with regards to see in DOM -->
+    <!-- The following links/files give us React code, which we can check in developer console by typing React into it. This is the library that we injected into our code. Therefore, from now whatever we do happens using React in our code. These two lines gives us access to the utility functions, e.g. React.createElement(), React.createContext(). -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
 
-    <!-- <script>
-        const heading = document.createElement('h1'); // created element
-        // "document" comes from Browser APIs, that's how browser is able to recognise it.
+    <script>
+      const heading = React.createElement(
+        'h1',
+        { id: 'title' },
+        'Namaste Everyone!'
+      );
+      // The <h1> tag comes from React, the core library. Whether you go building React Native etc. But what changes is how you modify it on the DOM, that is when the second library comes into picture which is "ReactDOM" as used below.
 
-        heading.innerHTML = "Namaste Everyone from JavaScript!"; // provide content according to element
-        
-        const root = document.getElementById('root'); // get the root element of HTML where we want to render the element
+      console.log(heading); // returns an object in the console. THUS, REACT ELEMENTS ARE JUST THE OBJECTS.
 
-        root.appendChild(heading); 
+      // Telling react about the root element, the place where we want React to run
+      // ReactDOM tells DOM will be modified; we're reading something from DOM
+      const root = ReactDOM.createRoot(document.getElementById('root')); // tells what is the root element inside our app.
 
-    </script> -->
-
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-
-
-</body>
+      // passing react element inside the root:
+      root.render(heading);
+      // render() method takes in a react element and modifies our DOM, so it injects in the DOM.
+      // react will override whatever there is existing inside the root and react will replace it with whatever you give inside render.
+    </script>
+  </body>
 </html>

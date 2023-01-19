@@ -14,8 +14,9 @@
     <!-- Create HTML element using <script> tag -->
     <div id="root"></div> <!-- Created to use with regards to see in DOM -->
 
-    <script>
+    <!-- <script>
         const heading = document.createElement('h1'); // created element
+        // "document" comes from Browser APIs, that's how browser is able to recognise it.
 
         heading.innerHTML = "Namaste Everyone from JavaScript!"; // provide content according to element
         
@@ -23,7 +24,10 @@
 
         root.appendChild(heading); 
 
-    </script>
+    </script> -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
 
 </body>

@@ -9,7 +9,22 @@
 </head>
 <body>
     <!-- Creating an HTML element -->
-    <h1>Namaste Everyone!</h1>
+    <!-- <h1>Namaste Everyone!</h1> -->
+
+    <!-- Create HTML element using <script> tag -->
+    <div id="root"></div> <!-- Created to use with regards to see in DOM -->
+
+    <script>
+        const heading = document.createElement('h1'); // created element
+
+        heading.innerHTML = "Namaste Everyone from JavaScript!"; // provide content according to element
+        
+        const root = document.getElementById('root'); // get the root element of HTML where we want to render the element
+
+        root.appendChild(heading); 
+
+    </script>
+
 
 </body>
 </html>

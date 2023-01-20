@@ -8,13 +8,15 @@
     <title>Namaste React</title>
   </head>
   <body>
-    <div id="root">
-      <h1 id="title">Not Rendered</h1>
-      <!-- "Not Rendered": because if we don't pass proper keyword to render, react will by default show Not Rendered on the page. -->
-    </div>
+
+    <div id="root">Not Rendered</div>
+    
+    <!-- <div id="container">
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+    </div> -->
     <!-- Created to use with regards to see in DOM -->
 
-    <!-- The following links/files give us React code, which we can check in developer console by typing React into it. This is the library that we injected into our code. Therefore, from now whatever we do happens using React in our code. These two lines gives us access to the utility functions, e.g. React.createElement(), React.createContext(). -->
     <script
       crossorigin
       src="https://unpkg.com/react@18/umd/react.development.js"
@@ -25,23 +27,25 @@
     ></script>
 
     <script>
-      const heading = React.createElement(
-        'h1',
-        { id: 'title' },
-        'Namaste Everyone!'
-      );
-      // The <h1> tag comes from React, the core library. Whether you go building React Native etc. But what changes is how you modify it on the DOM, that is when the second library comes into picture which is "ReactDOM" as used below.
+      // This is how we create a div as shown above using container
+      const heading1 = React.createElement('h1', { id: 'title' }, 'Heading 1');
 
-      console.log(heading); // returns an object in the console. THUS, REACT ELEMENTS ARE JUST THE OBJECTS.
+      const heading2 = React.createElement('h2', { id: 'title' }, 'Heading 2');
 
-      // Telling react about the root element, the place where we want React to run
-      // ReactDOM tells DOM will be modified; we're reading something from DOM
+      const container = React.createElement('div', { id: 'container' }, [
+        heading1,
+        heading2,
+      ]);
+
+      console.log(heading1); // returns an object in the console. THUS, REACT ELEMENTS ARE JUST THE OBJECTS.
+      
       const root = ReactDOM.createRoot(document.getElementById('root')); // tells what is the root element inside our app.
 
       // passing react element inside the root:
-      root.render(heading);
-      // render() method takes in a react element and modifies our DOM, so it injects in the DOM.
-      // react will override whatever there is existing inside the root and react will replace it with whatever you give inside render.
+      root.render(container);
+
     </script>
   </body>
 </html>
+
+<!-- 1:34:54 -->

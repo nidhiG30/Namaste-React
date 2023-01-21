@@ -1,0 +1,4 @@
+{
+  "plugins": [["transform-remove-console", { "exclude": ["error", "warn"] }]]
+}
+// With this configuration we able to NOT SHOW error or warning msgs to the end user.

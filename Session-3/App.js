@@ -7,12 +7,12 @@ const heading1 = React.createElement(
   { id: 'title', key: 'h1' },
   'Namaste React',
 );
-console.log(heading1); // returns an object in the console. THUS, REACT ELEMENTS ARE JUST THE OBJECTS.
 
-// Functional Component
+// React element inside React Functional Component
 const HeaderComponent = () => (
   <div>
-    <h1>Namaste React Functional Component</h1>
+    {heading1}
+    <h2>Namaste React Functional Component</h2>
     <h2>This is a h2 tag</h2>
   </div>
 );

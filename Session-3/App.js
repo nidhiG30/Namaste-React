@@ -9,16 +9,16 @@ const heading1 = React.createElement(
 );
 console.log(heading1); // returns an object in the console. THUS, REACT ELEMENTS ARE JUST THE OBJECTS.
 
-
-// JSX code:
-const heading = (
-  <h1 id='title' key='h2'>
-    Namaste React
-  </h1>
-); // When writing multiple lines of JSX code, the code is to be wrapped in a parentheses.
-// As we pass attributes/properties here, as id we can pass className here as well. It's just that in React we write "className" instead of only "class".
+// Functional Component
+const HeaderComponent = () => (
+  <div>
+    <h1>Namaste React Functional Component</h1>
+    <h2>This is a h2 tag</h2>
+  </div>
+);
+// We can omit "return" keyword if using arrow function syntax.
 
 const root = ReactDOM.createRoot(document.getElementById('root')); // tells what is the root element inside our app.
 
 // passing react element inside the root:
-root.render(heading);
+root.render(<HeaderComponent />);

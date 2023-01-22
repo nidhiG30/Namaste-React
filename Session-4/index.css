@@ -9,3 +9,6 @@
   display: flex; /* The listed items get in one line*/
 }
 
+.nav-items > ul > li {
+  padding: 10px;
+}

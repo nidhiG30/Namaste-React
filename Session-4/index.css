@@ -28,3 +28,8 @@
 .card > img {
   width: 100%; /* Image will resize it to width of the card */
 }
+
+.restaurant-list {
+  display: flex;
+  flex-wrap: wrap;
+}

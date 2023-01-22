@@ -889,7 +889,6 @@ const restaurantList = [
 
 const RestaurantCard = ({ name, cuisines, avgRating, cloudinaryImageId }) => {
   // destructuring the object data which we get as prop
-  // const {name, cuisines, avgRating, cloudinaryImageId} = restaurant.data;
   return (
     <div className='card'>
       <img
@@ -908,12 +907,12 @@ const RestaurantCard = ({ name, cuisines, avgRating, cloudinaryImageId }) => {
 const Body = () => {
   return (
     <div className='restaurant-list'>
-      <RestaurantCard name={restaurantList[0].data.name} cuisines={restaurantList[0].data.cuisines} />
-      <RestaurantCard name={restaurantList[1].data.name} cuisines={restaurantList[1].data.cuisines} />
-      <RestaurantCard name={restaurantList[2].data.name} cuisines={restaurantList[2].data.cuisines} />
-      {/* <RestaurantCard restaurant={restaurantList[3]} />
-      <RestaurantCard restaurant={restaurantList[4]} />
-      <RestaurantCard restaurant={restaurantList[5]} /> */}
+      {
+        restaurantList.map(restaurant => {
+          return <RestaurantCard {...restaurant.data}/>
+        })
+      }
+      
     </div>
   );
 };

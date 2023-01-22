@@ -888,18 +888,19 @@ const restaurantList = [
 ];
 
 const RestaurantCard = ({ restaurant }) => {
-  // destructuring the object; instead of writing (props) -> ({restaurant}). Thus, we can directly use "restaurant.data" without "props".
+  // destructuring the object data which we get as prop
+  const {name, cuisines, avgRating, cloudinaryImageId} = restaurant.data;
   return (
     <div className='card'>
       <img
         src={
           'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/' +
-          restaurant.data?.cloudinaryImageId
+          cloudinaryImageId
         }
       />
-      <h2>{restaurant.data?.name}</h2>
-      <h3>{restaurant.data?.cuisines.join(', ')}</h3>
-      <h4>{restaurant.data?.avgRating} Stars</h4>
+      <h2>{name}</h2>
+      <h3>{cuisines.join(', ')}</h3>
+      <h4>{avgRating} Stars</h4>
     </div>
   );
 };

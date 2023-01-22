@@ -13,7 +13,7 @@ const Title = () => (
 );
 
 // Composing Components
-const HeaderComponent = () => {
+const Header = () => {
   return (
     <div className='header'>
       <Title />
@@ -29,11 +29,29 @@ const HeaderComponent = () => {
   );
 };
 
+const Body = () => {
+  return (
+    <h4>Body</h4>
+  )
+}
+
+const Footer = () => {
+  return (
+    <h4>Footer</h4>
+  )
+}
+
 const AppLayout = () => {
-  return {};
+  return (
+    <>
+      <Header/>
+      <Body/>
+      <Footer/>
+    </>    
+  );
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // passing react element inside the root:
-root.render(<HeaderComponent />);
+root.render(<AppLayout />);

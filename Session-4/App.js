@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 // Functional Component
-const Title = () => (
+const Logo = () => (
   <a href='/'>
     <img
       className='logo'
@@ -16,7 +16,7 @@ const Title = () => (
 const Header = () => {
   return (
     <div className='header'>
-      <Title />
+      <Logo />
       <div className='nav-items'>
         <ul>
           <li>Home</li>
@@ -29,25 +29,35 @@ const Header = () => {
   );
 };
 
-const Body = () => {
+const RestaurantCard = () => {
   return (
-    <h4>Body</h4>
+    <div className='card'>
+      <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/vzx0lioqi9xvk49kl49b"/>
+      <h2>Two Joes</h2>
+      <h3>Tandoor, Arabian</h3>
+      <h4>4.2 stars</h4>
+
+    </div>
   )
 }
 
+const Body = () => {
+  return (<div>
+    <RestaurantCard/>
+  </div>);
+};
+
 const Footer = () => {
-  return (
-    <h4>Footer</h4>
-  )
-}
+  return <h4>Footer</h4>;
+};
 
 const AppLayout = () => {
   return (
     <>
-      <Header/>
-      <Body/>
-      <Footer/>
-    </>    
+      <Header />
+      <Body />
+      <Footer />
+    </>
   );
 };
 

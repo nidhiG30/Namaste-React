@@ -11,17 +11,25 @@ const Title = () => (
 // Composing Components
 const HeaderComponent = () => {
   return (
-    <div>
-      {Title()}
-      <h2>Namaste React Functional Component</h2>
-      <h2>This is a h2 tag</h2>
+    <div className='header'>
+      <Title />
+      <div className='nav-items'>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+          <li>Cart</li>
+        </ul>
+      </div>
     </div>
   );
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root')); 
+const AppLayout = () => {
+  return {};
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // passing react element inside the root:
 root.render(<HeaderComponent />);
-
-

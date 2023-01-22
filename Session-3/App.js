@@ -11,7 +11,7 @@ const Title = () => (
 
 // NOTE: While using arrow function syntax, if using return statement, then make sure to keep it in curly braces, otherwise if no return statement is used, must wrap the code in parentheses if multiple lines are there.
 
-// Component Composition: Functional Component inside React Functional Component
+// Component Composition in React: Functional Component inside Functional Component
 const HeaderComponent = () => {
   return (
     <div>

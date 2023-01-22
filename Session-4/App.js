@@ -29,13 +29,20 @@ const Header = () => {
   );
 };
 
+const twoJoes = {
+  image: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/vzx0lioqi9xvk49kl49b",
+  name: "Two Joes",
+  cuisines: ["Tandoor", "Arabian"],
+  rating: "4.2"
+}
+
 const RestaurantCard = () => {
   return (
     <div className='card'>
-      <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/vzx0lioqi9xvk49kl49b"/>
-      <h2>Two Joes</h2>
-      <h3>Tandoor, Arabian</h3>
-      <h4>4.2 stars</h4>
+      <img src={twoJoes.image}/>
+      <h2>{twoJoes.name}</h2>
+      <h3>{twoJoes.cuisines.join(", ")}</h3>
+      <h4>{twoJoes.rating} stars</h4>
 
     </div>
   )

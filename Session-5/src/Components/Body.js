@@ -18,7 +18,6 @@ const Body = () => {
             setSearchInput(e.target.value);
           }}
         />
-        <h1>{searchClicked}</h1>
         <button
           className='search-btn'
           onClick={() => {

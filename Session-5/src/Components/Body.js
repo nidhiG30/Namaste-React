@@ -1,3 +1,5 @@
+import {restaurantList} from '../config';
+
 const Body = () => {
   return (
     <div className='restaurant-list'>

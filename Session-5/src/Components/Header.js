@@ -1,5 +1,5 @@
 // Functional Component
-const Logo = () => (
+export const Logo = () => (
   <a href='/'>
     <img
       className='logo'

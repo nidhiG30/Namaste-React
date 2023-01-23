@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Header from './Components/Logo';
+import Header from './Components/Header'; // Default Import
+import {Logo} from './Components/Header'; // Named Import
 
 const twoJoes = {
   name: 'Two Joes',

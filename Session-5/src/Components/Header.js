@@ -1,5 +1,5 @@
 // Functional Component
-export const Logo = () => (
+const Logo = () => (
   <a href='/'>
     <img
       className='logo'
@@ -9,7 +9,7 @@ export const Logo = () => (
   </a>
 );
 
-const Header = () => {
+export const Header = () => {
   return (
     <div className='header'>
       <Logo />

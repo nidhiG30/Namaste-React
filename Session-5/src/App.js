@@ -1,15 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Header from './Components/Header'; // Default Import
-import {Logo} from './Components/Header'; // Named Import
-
-const twoJoes = {
-  name: 'Two Joes',
-  image:
-    'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/vzx0lioqi9xvk49kl49b',
-  cuisines: ['Tandoor', 'Arabian'],
-  rating: '4.2',
-};
+import Header from './components/Header';
+import Body from './components/Body';
+import Footer from './components/Footer';
 
 // Config Driven Architecture
 
@@ -876,21 +869,6 @@ const RestaurantCard = ({ name, cuisines, avgRating, cloudinaryImageId }) => {
       <h4>{avgRating} Stars</h4>
     </div>
   );
-};
-
-// no key (not acceptable) <<<<<<<< index key (last option) <<<< unique key (best practice)
-const Body = () => {
-  return (
-    <div className='restaurant-list'>
-      {restaurantList.map(restaurant => {
-        return <RestaurantCard {...restaurant.data} key={restaurant.data.id} />; // Here the "key" remains unique for every element that gets added to the DOM, reconciliation.
-      })}
-    </div>
-  );
-};
-
-const Footer = () => {
-  return <h4>Footer</h4>;
 };
 
 const AppLayout = () => {

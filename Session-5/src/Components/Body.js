@@ -1,4 +1,5 @@
 import {restaurantList} from '../config';
+import RestaurantCard from './RestaurantCard';
 
 const Body = () => {
   return (

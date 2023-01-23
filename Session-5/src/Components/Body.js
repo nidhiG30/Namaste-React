@@ -2,9 +2,13 @@ import { restaurantList } from '../config';
 import RestaurantCard from './RestaurantCard';
 import { useState } from 'react';
 
+function filterData(searchText, restaurants) {
+  return restaurants.filter(restaurant => restaurant?.data?.name.includes(searchText));
+}
+
 const Body = () => {
-  // const searchTxt = "KFC"
-  const [searchInput, setSearchInput] = useState('KFC');
+ const [restaurants, setRestaurants] = useState(restaurantList);
+  const [searchText, setSearchText] = useState();
 
   return (
     <>
@@ -13,16 +17,19 @@ const Body = () => {
           type='text'
           className='search-input'
           placeholder='Search'
-          value={searchInput}
+          value={searchText}
           onChange={e => {
-            setSearchInput(e.target.value);
+            setSearchText(e.target.value);
           }}
         />
         <button
           className='search-btn'
           onClick={() => {
             // need to filter the data from restaurantList
-            filterData();
+            const data = filterData(searchText, restaurants);
+
+            // update the state - restaurants
+            setRestaurants(data);
           }}
         >
           Search
@@ -30,7 +37,7 @@ const Body = () => {
       </div>
 
       <div className='restaurant-list'>
-        {restaurantList.map(restaurant => {
+        {restaurants.map(restaurant => {
           return (
             <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
           ); // Here the "key" remains unique for every element that gets added to the DOM, reconciliation.

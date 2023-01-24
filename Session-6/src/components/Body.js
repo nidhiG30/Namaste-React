@@ -1,14 +1,15 @@
 import { restaurantList } from '../config';
 import RestaurantCard from './RestaurantCard';
 import { useState, useEffect } from 'react';
+import Shimmer from './Shimmer';
 
 function filterData(searchText, restaurants) {
   return restaurants.filter(restaurant => restaurant?.data?.name.includes(searchText));
 }
 
 const Body = () => {
- const [restaurants, setRestaurants] = useState(restaurantList);
-  const [searchText, setSearchText] = useState("");
+ const [restaurants, setRestaurants] = useState([]); // initially empty list of restaurants
+  const [searchText, setSearchText] = useState(""); //initially no text in search bar
 
   // Empty dependecy array is called only once after every render
   // dep array [searchText] => once after initial render + render everytime the state is changed  
@@ -23,13 +24,13 @@ const Body = () => {
     console.log(json);
 
     // Insert real data of the restaurants on UI fetched from Swiggy's API
-    setRestaurants(json?.data?.cards[2]?.data?.data?.cards); // To put the data
+    setRestaurants(json?.data?.cards[2]?.data?.data?.cards) // To put the data
     
   }
 
   console.log("render");
 
-  return (
+  return (restaurants.length === 0) ? <Shimmer /> : (
     <>
       <div className='search-container'>
         <input

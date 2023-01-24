@@ -10,10 +10,10 @@ const Body = () => {
  const [restaurants, setRestaurants] = useState(restaurantList);
   const [searchText, setSearchText] = useState("");
 
-  // Fetch data from API with useEffect() hook.
+  // empty dependecy array is called once after every render
   useEffect(() => {
-    console.log("render");
-  })
+    // API call
+  }, []);
 
   return (
     <>

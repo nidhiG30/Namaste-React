@@ -18,7 +18,7 @@ export const Header = () => {
       <Logo />
 
       <h1>{title}</h1>
-      <button onClick={() => setTitle("Foods")}>Change Title</button>
+      <button onClick={() => setTitle("Foods")}>Change Title</button> {/** Change in state variable */}
 
       <div className='nav-items'>
         <ul>

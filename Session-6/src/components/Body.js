@@ -1,6 +1,6 @@
 import { restaurantList } from '../config';
 import RestaurantCard from './RestaurantCard';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function filterData(searchText, restaurants) {
   return restaurants.filter(restaurant => restaurant?.data?.name.includes(searchText));
@@ -8,7 +8,12 @@ function filterData(searchText, restaurants) {
 
 const Body = () => {
  const [restaurants, setRestaurants] = useState(restaurantList);
-  const [searchText, setSearchText] = useState();
+  const [searchText, setSearchText] = useState("");
+
+  // Fetch data from API with useEffect() hook.
+  useEffect(() => {
+    console.log("render");
+  })
 
   return (
     <>

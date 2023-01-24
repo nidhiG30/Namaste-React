@@ -1,4 +1,5 @@
-// Functional Component
+import {useState} from "react";
+
 const Logo = () => (
   <a href='/'>
     <img
@@ -10,10 +11,13 @@ const Logo = () => (
 );
 
 export const Header = () => {
+  const [title, setTitle] = useState("Khaana");
+
   return (
     <div className='header'>
       <Logo />
 
+      <h1>{title}</h1>
       <div className='nav-items'>
         <ul>
           <li>Home</li>

@@ -22,6 +22,8 @@ const Body = () => {
     const json = await data.json();
     console.log(json);
 
+    // Insert real data of the restaurants on UI fetched from Swiggy's API
+    setRestaurants(json?.data?.cards[2]?.data?.data?.cards); // To put the data
     
   }
 

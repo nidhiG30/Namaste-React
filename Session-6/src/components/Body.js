@@ -14,7 +14,14 @@ const Body = () => {
   // dep array [searchText] => once after initial render + render everytime the state is changed  
   useEffect(() => {
     // API call
+    getRestaurants();
   }, []);
+
+  async function getRestaurants() {
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.2380497&lng=77.44062370000002&page_type=DESKTOP_WEB_LISTING");
+    const json = await data.json();
+    console.log(json);
+  }
 
   return (
     <>

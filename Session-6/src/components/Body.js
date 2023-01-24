@@ -10,7 +10,8 @@ const Body = () => {
  const [restaurants, setRestaurants] = useState(restaurantList);
   const [searchText, setSearchText] = useState("");
 
-  // empty dependecy array is called once after every render
+  // Empty dependecy array is called only once after every render
+  // dep array [searchText] => once after initial render + render everytime the state is changed  
   useEffect(() => {
     // API call
   }, []);

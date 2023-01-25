@@ -10,14 +10,11 @@ function filterData(searchText, restaurants) {
 }
 
 const Body = () => {
-  const [allRestaurants, setAllRestaurants] = useState([]); // allRestaurants, used to search & to filter
-  const [filteredRestaurants, setFilteredRestaurants] = useState([]); // filteredRestaurants, used to render
-  const [searchText, setSearchText] = useState(''); //initially no text in search bar
+  const [allRestaurants, setAllRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [searchText, setSearchText] = useState('');
 
-  // Empty dependecy array is called only once after every render
-  // dep array [searchText] => once after initial render + render everytime the state is changed
   useEffect(() => {
-    // API call
     getRestaurants();
   }, []);
 
@@ -28,21 +25,15 @@ const Body = () => {
     const json = await data.json();
     console.log(json);
 
-    // Insert real data of the restaurants on UI fetched from Swiggy's API
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards); // To put the data
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards); // To put the data
   }
 
   console.log('render');
 
-  // Conditional Rendering
-  // if restaurant is empty (allRestaurants and filteredRestaurants both contains data, so that's why we take allRestaurants to check this condition as it provides wholesome data) => shimmer UI
-  // if restaurant has data => actual data UI
-
   if (!allRestaurants) return null; // Early return => (when no restaurant found, component not rendered)
 
-  if (filteredRestaurants?.length === 0) return <h1>No Restaurant match your filter!!</h1>
-
+  
   return allRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
@@ -83,4 +74,3 @@ const Body = () => {
 };
 
 export default Body;
-

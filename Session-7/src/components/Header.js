@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const Logo = () => (
@@ -13,6 +13,12 @@ const Logo = () => (
 
 export const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    console.log("useEffect");
+  }) // UseEffect without dependency array: "useEffect" gets called after every render, as is has no dependency.
+
+  console.log("render");
 
   return (
     <div className='header'>

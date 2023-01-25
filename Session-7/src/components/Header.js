@@ -16,7 +16,7 @@ export const Header = () => {
 
   useEffect(() => {
     console.log("useEffect");
-  }) // UseEffect without dependency array: "useEffect" gets called after every render, as is has no dependency.
+  }, []) // 'useEffect' with Empty Dependency Array: "useEffect" gets called ONLY ONCE after initial render.
 
   console.log("render");
 

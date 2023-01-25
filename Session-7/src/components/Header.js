@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import UpdatedLogo from "../../assets/img/khaana.png";
 
 
 const Logo = () => (
   <a href='/'>
     <img
       className='logo'
-      src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPQFELK3a9H16QTturOu6HihNMpAp5WbqN-Q&usqp=CAU'
+      src={UpdatedLogo} // Instead of CDN link, we used locally stored image
       alt='logo'
     />
   </a>
@@ -13,12 +14,6 @@ const Logo = () => (
 
 export const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    console.log("useEffect");
-  }, [isLoggedIn]) // 'useEffect' with Dependency Array: 'useEffect' gets called after initial render, and then everytime there is a state change with state variable, the effect with useEffect also changes and thus rendering happens.
-
-  console.log("render");
 
   return (
     <div className='header'>

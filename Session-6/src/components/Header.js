@@ -1,4 +1,9 @@
-import {useState} from "react";
+import { useState } from 'react';
+
+// const loggedInUser = () => {
+//   // API call to check authentication
+//   return false;
+// };
 
 const Logo = () => (
   <a href='/'>
@@ -11,15 +16,11 @@ const Logo = () => (
 );
 
 export const Header = () => {
-  const [title, setTitle] = useState("Khaana");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <div className='header'>
       <Logo />
-
-      <h1>{title}</h1>
-      <button onClick={() => setTitle("Foods")}>Change Title</button> {/** Change in state variable */}
-
       <div className='nav-items'>
         <ul>
           <li>Home</li>
@@ -28,6 +29,11 @@ export const Header = () => {
           <li>Cart</li>
         </ul>
       </div>
+      {isLoggedIn ? (
+        <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+      ) : (
+        <button onClick={() => setIsLoggedIn(true)}>Login</button>
+      )}
     </div>
   );
 };

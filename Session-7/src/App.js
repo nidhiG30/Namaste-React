@@ -5,7 +5,7 @@ import Body from './components/Body';
 import Footer from './components/Footer';
 import { createBrowserRouter } from 'react-router-dom';
 
-
+const appRouter = createBrowserRouter();
 
 const AppLayout = () => {
   return (

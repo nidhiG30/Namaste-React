@@ -16,7 +16,7 @@ export const Header = () => {
 
   useEffect(() => {
     console.log("useEffect");
-  }) // 'useEffect' with NO Dependency Array: 'useEffect' gets called after every render, as there is no dependency.
+  }, [isLoggedIn]) // 'useEffect' with Dependency Array: 'useEffect' gets called after initial render, and then everytime there is a state change with state variable, the effect with useEffect also changes and thus rendering happens.
 
   console.log("render");
 

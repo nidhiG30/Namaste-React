@@ -1,9 +1,5 @@
 import { useState } from 'react';
 
-// const loggedInUser = () => {
-//   // API call to check authentication
-//   return false;
-// };
 
 const Logo = () => (
   <a href='/'>

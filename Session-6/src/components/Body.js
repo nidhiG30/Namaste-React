@@ -10,8 +10,8 @@ function filterData(searchText, restaurants) {
 }
 
 const Body = () => {
-  const [allRestaurants, setAllRestaurants] = useState([]);
-  const [filteredRestaurants, setFilteredRestaurants] = useState([]); // initially empty list of restaurants
+  const [allRestaurants, setAllRestaurants] = useState([]); // allRestaurants, used to search & to filter
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]); // filteredRestaurants, used to render
   const [searchText, setSearchText] = useState(''); //initially no text in search bar
 
   // Empty dependecy array is called only once after every render
@@ -84,4 +84,3 @@ const Body = () => {
 
 export default Body;
 
-// 2:30

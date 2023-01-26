@@ -29,8 +29,6 @@ const Body = () => {
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards); // To put the data
   }
 
-  console.log('render');
-
   if (!allRestaurants) return null; // Early return => (when no restaurant found, component not rendered)
 
   

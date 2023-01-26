@@ -11,7 +11,8 @@ const AppLayout = () => {
   return (
     <>
       <Header />
-      <Body />
+      <About/> // if path is /about
+      <Body /> // if path is /
       <Footer />
     </>
   );
@@ -21,11 +22,13 @@ const appRouter = createBrowserRouter([
   {
     path: '/',
     element: <AppLayout />,
-    errorElement: <Error />
-  },
-  {
-    path: '/about',
-    element: <About />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: '/about', // 'About' is the child of <AppLayout> as mentioned in this block
+        element: <About />,
+      },
+    ]
   },
 ]);
 

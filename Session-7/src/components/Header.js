@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import UpdatedLogo from "../../assets/img/khaana.png";
-
+import UpdatedLogo from '../../assets/img/khaana.png';
+import { Link } from 'react-router-dom';
 
 const Logo = () => (
   <a href='/'>
@@ -20,8 +20,12 @@ export const Header = () => {
       <Logo />
       <div className='nav-items'>
         <ul>
-          <li>Home</li>
-          <li><a href="/about">About</a></li>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/about'>About</Link>
+          </li>
           <li>Contact</li>
           <li>Cart</li>
         </ul>

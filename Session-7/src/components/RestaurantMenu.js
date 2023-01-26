@@ -1,7 +1,13 @@
+import {useParams} from "react-router-dom"
+
 const RestaurantMenu = () => {
+  const params = useParams();
+  const {id} = params;
+  console.log(params);
+
   return (
     <div>
-      <h1>Restaurant Id: 123</h1>
+      <h1>Restaurant Id: {id}</h1>
       <h2>Namaste</h2>
     </div>
   );

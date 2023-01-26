@@ -1,12 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {useParams} from "react-router-dom"
 
 const RestaurantMenu = () => {
   // How to read dynamic URL params
   const {resId} = useParams();
 
-  useEffect(() => {
-    getRestaurantInfo();
+  const [restaurant, setRestaurant] = useState({}); // default empty object
+
+  useEffect(() => { // gets an API call
+    getRestaurantInfo(); 
   }, []);
 
   async function getRestaurantInfo() {

@@ -1,7 +1,19 @@
+import { useEffect } from "react";
 import {useParams} from "react-router-dom"
 
 const RestaurantMenu = () => {
-  const {resId} = useParams(); // Dynamic Rounting: Destructured data returned by useParams()
+  // How to read dynamic URL params
+  const {resId} = useParams();
+
+  useEffect(() => {
+    getRestaurantInfo();
+  }, []);
+
+  async function getRestaurantInfo() {
+    const data = await fetch("https://www.swiggy.com/dapi/menu/v4/full?lat=21.1189882&lng=79.04192739999999&menuId=359586");
+    const json = await data.json();
+    console.log(json);
+  }
 
   return (
     <div>

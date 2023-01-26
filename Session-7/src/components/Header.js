@@ -21,7 +21,7 @@ export const Header = () => {
       <div className='nav-items'>
         <ul>
           <li>Home</li>
-          <li>About</li>
+          <li><a href="/about">About</a></li>
           <li>Contact</li>
           <li>Cart</li>
         </ul>

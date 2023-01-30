@@ -7,7 +7,7 @@ const RestaurantMenu = () => {
   // How to read dynamic URL params
   const { resId } = useParams();
 
-  const [restaurant, setRestaurant] = useState({}); // default empty object
+  const [restaurant, setRestaurant] = useState(null); // 'null' poses as a 'value' than just passing an 'empty object {}' which causes error or page reload
 
   useEffect(() => {
     // gets an API call
@@ -23,8 +23,10 @@ const RestaurantMenu = () => {
     setRestaurant(json.data);
   }
 
-  return (restaurant === null) ? <Shimmer/> : ( // Added condition to render Object.values as needed.
-    <div>
+  return !restaurant ? ( // Making early return if the restaurant state was found to be 'null'
+    <Shimmer />
+  ) : (
+    <div className='menu'>
       <div>
         <h1>Restaurant Id: {resId}</h1> {/* 'id' could be 'resId' */}
         <h2>{restaurant.name}</h2>
@@ -37,7 +39,7 @@ const RestaurantMenu = () => {
       <div>
         <h1>Menu</h1>
         <ul>
-          {Object.values(restaurant?. menu?.items).map((item) => (
+          {Object.values(restaurant?.menu?.items).map(item => (
             <li key={item.id}>{item.name}</li>
           ))}
         </ul>

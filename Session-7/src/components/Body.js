@@ -2,6 +2,7 @@ import { restaurantList } from '../config';
 import RestaurantCard from './RestaurantCard';
 import { useState, useEffect } from 'react';
 import Shimmer from './Shimmer';
+import { Link } from 'react-router-dom';
 
 function filterData(searchText, restaurants) {
   return restaurants.filter(restaurant =>
@@ -23,7 +24,6 @@ const Body = () => {
       'https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1189882&lng=79.04192739999999&page_type=DESKTOP_WEB_LISTING',
     );
     const json = await data.json();
-    console.log(json);
 
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards); // To put the data
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards); // To put the data
@@ -31,7 +31,6 @@ const Body = () => {
 
   if (!allRestaurants) return null; // Early return => (when no restaurant found, component not rendered)
 
-  
   return allRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
@@ -63,7 +62,12 @@ const Body = () => {
       <div className='restaurant-list'>
         {filteredRestaurants.map(restaurant => {
           return (
-            <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
+            <Link // Added link on RestaurantCard
+              to={'/restaurant/' + restaurant.data.id} // passing dynamic ID to the restaurant
+              key={restaurant.data.id}
+            >
+              <RestaurantCard {...restaurant.data} />
+            </Link>
           ); // Here the "key" remains unique for every element that gets added to the DOM, reconciliation.
         })}
       </div>

@@ -7,16 +7,15 @@ const RestaurantMenu = () => {
   // How to read dynamic URL params
   const { resId } = useParams();
 
-  const [restaurant, setRestaurant] = useState(null); // 'null' poses as a 'value' than just passing an 'empty object {}' which causes error or page reload
+  const [restaurant, setRestaurant] = useState(null); // 'null' poses as a 'value' than just passing an 'empty object {}' which causes error on page reload
 
   useEffect(() => {
-    // gets an API call
     getRestaurantInfo();
   }, []);
 
   async function getRestaurantInfo() {
     const data = await fetch(
-      'https://www.swiggy.com/dapi/menu/v4/full?lat=21.1189882&lng=79.04192739999999&menuId=359586',
+      'https://www.swiggy.com/dapi/menu/v4/full?lat=21.1189882&lng=79.04192739999999&menuId='+resId // fetching dynamic restaurant ID
     );
     const json = await data.json();
     console.log(json.data);

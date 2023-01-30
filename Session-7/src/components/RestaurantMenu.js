@@ -1,37 +1,46 @@
-import { useEffect, useState } from "react";
-import {useParams} from "react-router-dom";
-import { IMG_CDN_URL } from "../config";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { IMG_CDN_URL } from '../config';
+import Shimmer from './Shimmer';
 
 const RestaurantMenu = () => {
   // How to read dynamic URL params
-  const {resId} = useParams();
+  const { resId } = useParams();
 
   const [restaurant, setRestaurant] = useState({}); // default empty object
 
-  useEffect(() => { // gets an API call
-    getRestaurantInfo(); 
+  useEffect(() => {
+    // gets an API call
+    getRestaurantInfo();
   }, []);
 
   async function getRestaurantInfo() {
-    const data = await fetch("https://www.swiggy.com/dapi/menu/v4/full?lat=21.1189882&lng=79.04192739999999&menuId=359586");
+    const data = await fetch(
+      'https://www.swiggy.com/dapi/menu/v4/full?lat=21.1189882&lng=79.04192739999999&menuId=359586',
+    );
     const json = await data.json();
     console.log(json.data);
     setRestaurant(json.data);
   }
 
-  return (
+  return (restaurant === null) ? <Shimmer/> : ( // Added condition to render Object.values as needed.
     <div>
       <div>
         <h1>Restaurant Id: {resId}</h1> {/* 'id' could be 'resId' */}
         <h2>{restaurant.name}</h2>
-        <img src={IMG_CDN_URL + restaurant.cloudinaryImageId}/>
+        <img src={IMG_CDN_URL + restaurant?.cloudinaryImageId} />
         <h3>{restaurant.area}</h3>
         <h3>{restaurant.city}</h3>
         <h3>{restaurant.avgRating} ⭐</h3>
         <h3>{restaurant.costForTwoMsg}</h3>
       </div>
       <div>
-        {console.log(Object.values(restaurant.menu.items))} {/* To checkout menu items */}
+        <h1>Menu</h1>
+        <ul>
+          {Object.values(restaurant?. menu?.items).map((item) => (
+            <li key={item.id}>{item.name}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

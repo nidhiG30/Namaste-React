@@ -2,6 +2,7 @@ import {useState} from 'react';
 
 const Profile = (props) => {
   const [count] = useState(0); // creating state without setFunction().
+  const [count2] = useState(0); // One-by-one states are created in func comp
   return (
     <div>
       <h2>Profile Component</h2>

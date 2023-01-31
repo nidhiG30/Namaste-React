@@ -1,3 +1,4 @@
+import ProfileFunctionalComponent from './Profile';
 import Profile from './ProfileClass';
 
 const About = () => {
@@ -5,7 +6,8 @@ const About = () => {
     <div>
       <h1>About Us Page</h1>
       <p>This is the Namaste React Live Course</p>
-      <Profile />
+      <ProfileFunctionalComponent name={"Nidhi"}/>
+      <Profile name={"Nitti Gaje"} />
     </div>
   );
 };

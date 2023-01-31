@@ -6,12 +6,11 @@ class Profile extends React.Component {
     // Create State
     this.state = {
       count: 0,
-      count2: 0 // Multiple states are created in single state object 'this.state'
+      count2: 0, // Multiple states are created in single state object 'this.state'
     };
   }
 
   render() {
-    // Destructuring the 'state'
     const { count } = this.state;
     return (
       <div>
@@ -19,8 +18,16 @@ class Profile extends React.Component {
         <h2>Name: {this.props.name}</h2>
         <h3>XYZ: {this.props.xyz}</h3>
 
-        {/* Access the state variable */}
         <h3>Count: {count}</h3>
+        <button
+          onClick={() => {
+            this.setState({ // setFUnction in Class Comp
+              count: 1
+            });
+          }}
+        >
+          SetCount
+        </button>
       </div>
     );
   }

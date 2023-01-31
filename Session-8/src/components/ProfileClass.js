@@ -21,6 +21,8 @@ class Profile extends React.Component {
         <h3>Count: {count}</h3>
         <button
           onClick={() => {
+            // WE DO NOT MUTATE STATE DIRECTLY
+            // Never do this.state = something
             this.setState({ // setFUnction in Class Comp
               count: 1
             });

@@ -9,17 +9,17 @@ class Profile extends React.Component {
       count2: 0, // Multiple states are created in single state object 'this.state'
     };
 
-    console.log('Constructor');
+    console.log('Child - Constructor'); // 3
   }
 
-  // Method used to call APIs 
+  // Method used to call APIs
   componentDidMount() {
-    console.log("componentDidMount");
+    console.log('Child - ComponentDidMount'); // 5
   }
 
   render() {
     const { count } = this.state;
-    console.log('Render');
+    console.log('Child - Render'); // 4
     return (
       <div>
         <h1>Profile Class Component</h1>

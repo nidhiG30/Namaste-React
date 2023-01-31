@@ -8,10 +8,18 @@ class Profile extends React.Component {
       count: 0,
       count2: 0, // Multiple states are created in single state object 'this.state'
     };
+
+    console.log('Constructor');
+  }
+
+  // Method used to call APIs 
+  componentDidMount() {
+    console.log("componentDidMount");
   }
 
   render() {
     const { count } = this.state;
+    console.log('Render');
     return (
       <div>
         <h1>Profile Class Component</h1>
@@ -21,10 +29,9 @@ class Profile extends React.Component {
         <h3>Count: {count}</h3>
         <button
           onClick={() => {
-            // WE DO NOT MUTATE STATE DIRECTLY
-            // Never do this.state = something
-            this.setState({ // setFUnction in Class Comp
-              count: 1
+            this.setState({
+              // setFUnction in Class Comp
+              count: 1,
             });
           }}
         >

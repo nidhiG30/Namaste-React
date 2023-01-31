@@ -6,6 +6,7 @@ class Profile extends React.Component {
     // Create State
     this.state = {
       count: 0,
+      count2: 0 // Multiple states are created in single state object 'this.state'
     };
   }
 

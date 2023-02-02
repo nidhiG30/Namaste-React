@@ -2,41 +2,36 @@ import React from 'react';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-
-    // Create State
     this.state = {
-      count: 0,
-      count2: 0, // Multiple states are created in single state object 'this.state'
+      userInfo: {
+        name: 'Dummy Name',
+        location: 'Dummy Location',
+      },
     };
 
-    console.log('Child - Constructor' + this.props.name); // 3 (first) | 5 (second)
+    console.log('Child - Constructor' + this.props.name);
   }
 
   // Method used to call APIs
-  componentDidMount() {
-    console.log('Child - ComponentDidMount' + this.props.name); // 7 (f) | 8 (s)
+  async componentDidMount() {
+    const data = await fetch('https://api.github.com/users/nidhig30');
+    const json = await data.json();
+    this.setState({
+      userInfo: json,
+    });
+
+    console.log('Child - ComponentDidMount' + this.props.name);
   }
 
   render() {
     const { count } = this.state;
-    console.log('Child - Render' + this.props.name); // 4 (f) | 6 (s)
+    console.log('Child - Render' + this.props.name);
     return (
       <div>
         <h1>Profile Class Component</h1>
-        <h2>Name: {this.props.name}</h2>
-        <h3>XYZ: {this.props.xyz}</h3>
-
-        <h3>Count: {count}</h3>
-        <button
-          onClick={() => {
-            this.setState({
-              // setFUnction in Class Comp
-              count: 1,
-            });
-          }}
-        >
-          SetCount
-        </button>
+        <img src={this.state?.userInfo?.avatar_url} />
+        <h2>Name: {this.state?.userInfo?.name}</h2>
+        <h3>Location: {this.state?.userInfo?.location}</h3>
       </div>
     );
   }

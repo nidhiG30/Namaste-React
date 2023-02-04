@@ -14,13 +14,13 @@ class Profile extends React.Component {
 
   // Method used to call APIs
   async componentDidMount() {
+    console.log('Child - ComponentDidMount ' + this.props.name);  // 5
     const data = await fetch('https://api.github.com/users/nidhig30');
     const json = await data.json();
-    console.log(json);  // 6
+    console.log(json);  // 7
     this.setState({
       userInfo: json,
     });
-    console.log('Child - ComponentDidMount ' + this.props.name);  // 7
   }
 
   render() {

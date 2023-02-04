@@ -10,7 +10,7 @@ class About extends Component {
 
   // API call
   componentDidMount() {
-    console.log('Parent - ComponentDidMount');  // *5
+    console.log('Parent - ComponentDidMount');  // *6
   }
 
   render() {

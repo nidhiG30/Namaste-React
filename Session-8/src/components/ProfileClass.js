@@ -27,6 +27,10 @@ class Profile extends React.Component {
     console.log("Component did update");
   }
 
+  componentWillUnmount(){
+    console.log("componentWillUnmount");
+  }
+
   render() {
     const { count } = this.state;
     console.log('Child - Render ' + this.props.name);  // 4 || 8 (because of setState in 'async componentDidMount()' call)

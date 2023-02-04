@@ -3,9 +3,9 @@ import {useEffect, useState} from 'react';
 const Profile = (props) => {
   const [count, setCount] = useState(0); // creating state with setFunction().
 
-  useEffect(() => {
+  useEffect(() => {   // Example 1
     // API Call
-  })
+  }, [count]);
   
   return (
     <div>

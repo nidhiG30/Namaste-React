@@ -23,6 +23,10 @@ class Profile extends React.Component {
     });
   }
 
+  componentDidUpdate() { // Method runs after the API call and the update cycle is updated after doing setState in componentDidMount() method.
+    console.log("Component did update");
+  }
+
   render() {
     const { count } = this.state;
     console.log('Child - Render ' + this.props.name);  // 4 || 8 (because of setState in 'async componentDidMount()' call)

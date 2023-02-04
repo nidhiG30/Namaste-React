@@ -23,12 +23,8 @@ class Profile extends React.Component {
     });
   }
 
-  componentDidUpdate() { // Method runs after the API call and the update cycle is updated after doing setState in componentDidMount() method.
+  componentDidUpdate() {
     console.log("Component did update");
-  }
-
-  componentWillUnmount(){
-    console.log("componentWillUnmount");
   }
 
   render() {

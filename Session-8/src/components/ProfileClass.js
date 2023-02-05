@@ -24,11 +24,11 @@ class Profile extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // Example 2
-    if (
-      this.state.count !== prevState.count ||
-      this.state.count2 !== prevState.count2
-    ) {
+    // Example 3
+    if (this.state.count !== prevState.count) {
+      // code
+    }
+    if (this.state.count2 !== prevState.count2) {
       // code
     }
     console.log('Component did update');

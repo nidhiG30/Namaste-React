@@ -4,9 +4,13 @@ const Profile = (props) => {
   const [count, setCount] = useState(0);
   const [count2, setCount2] = useState(0);
   
-  useEffect(() => {   // Example 2
+  useEffect(() => {   // Example 3
     // API Call
-  }, [count, count2]);
+  }, [count]);
+
+  useEffect(() => {   // Example 3
+    // API Call
+  }, [count2]);
 
   
   return (

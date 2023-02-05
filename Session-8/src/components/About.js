@@ -1,3 +1,4 @@
+import ProfileFunctionalComponent from './Profile';
 import Profile from './ProfileClass';
 import { Component } from 'react';
 
@@ -19,7 +20,7 @@ class About extends Component {
       <div>
         <h1>About Us Page</h1>
         <p>This is the Namaste React Live Course</p>
-        <Profile name={'First Child'} xyz='abc' />
+        <ProfileFunctionalComponent />
       </div>
     );
   }

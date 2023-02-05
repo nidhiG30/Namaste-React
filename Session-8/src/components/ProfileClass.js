@@ -9,18 +9,16 @@ class Profile extends React.Component {
       },
     };
 
-    console.log('Child - Constructor ' + this.props.name); // 3
+    console.log('Child - Constructor ' + this.props.name);
   }
 
   // Method used to call APIs
-  async componentDidMount() {
-    console.log('Child - ComponentDidMount ' + this.props.name); // 5
-    const data = await fetch('https://api.github.com/users/nidhig30');
-    const json = await data.json();
-    console.log(json); // 7
-    this.setState({
-      userInfo: json,
-    });
+  componentDidMount() {
+    this.timer = setInterval(() => {
+      console.log("Namaste React OP");
+    }, 1000);
+
+    console.log('Child - ComponentDidMount');
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -34,9 +32,14 @@ class Profile extends React.Component {
     console.log('Component did update');
   }
 
+  componentWillUnmount() {
+    clearInterval(this.timer);
+    console.log("componentWillUnmount");
+  }
+
   render() {
     const { count } = this.state;
-    console.log('Child - Render ' + this.props.name); // 4 || 8 (because of setState in 'async componentDidMount()' call)
+    console.log('Child - Render ' + this.props.name);
     return (
       <div>
         <h1>Profile Class Component</h1>

@@ -1,11 +1,13 @@
 import {useEffect, useState} from 'react';
 
 const Profile = (props) => {
-  const [count, setCount] = useState(0); // creating state with setFunction().
-
-  useEffect(() => {   // Example 1
+  const [count, setCount] = useState(0);
+  const [count2, setCount2] = useState(0);
+  
+  useEffect(() => {   // Example 2
     // API Call
-  }, [count]);
+  }, [count, count2]);
+
   
   return (
     <div>

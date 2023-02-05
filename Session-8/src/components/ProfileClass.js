@@ -9,30 +9,34 @@ class Profile extends React.Component {
       },
     };
 
-    console.log('Child - Constructor ' + this.props.name);  // 3
+    console.log('Child - Constructor ' + this.props.name); // 3
   }
 
   // Method used to call APIs
   async componentDidMount() {
-    console.log('Child - ComponentDidMount ' + this.props.name);  // 5
+    console.log('Child - ComponentDidMount ' + this.props.name); // 5
     const data = await fetch('https://api.github.com/users/nidhig30');
     const json = await data.json();
-    console.log(json);  // 7
+    console.log(json); // 7
     this.setState({
       userInfo: json,
     });
   }
 
-  componentDidUpdate(prevProps, prevState) {    // Example 1
-    if (this.state.count !== prevState.count) {
+  componentDidUpdate(prevProps, prevState) {
+    // Example 2
+    if (
+      this.state.count !== prevState.count ||
+      this.state.count2 !== prevState.count2
+    ) {
       // code
     }
-    console.log("Component did update");
+    console.log('Component did update');
   }
 
   render() {
     const { count } = this.state;
-    console.log('Child - Render ' + this.props.name);  // 4 || 8 (because of setState in 'async componentDidMount()' call)
+    console.log('Child - Render ' + this.props.name); // 4 || 8 (because of setState in 'async componentDidMount()' call)
     return (
       <div>
         <h1>Profile Class Component</h1>
@@ -45,6 +49,5 @@ class Profile extends React.Component {
 }
 
 export default Profile;
-
 
 // support@hdfcbank.com

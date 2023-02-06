@@ -9,7 +9,7 @@ class Profile extends React.Component {
       },
     };
 
-    console.log('Child - Constructor ' + this.props.name);
+    // console.log('Child - Constructor ' + this.props.name);
   }
 
   // Method used to call APIs
@@ -18,7 +18,7 @@ class Profile extends React.Component {
       console.log("Namaste React OP");
     }, 1000);
 
-    console.log('Child - ComponentDidMount');
+    // console.log('Child - ComponentDidMount');
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -34,12 +34,12 @@ class Profile extends React.Component {
 
   componentWillUnmount() {
     clearInterval(this.timer);
-    console.log("componentWillUnmount");
+    // console.log("componentWillUnmount");
   }
 
   render() {
     const { count } = this.state;
-    console.log('Child - Render ' + this.props.name);
+    // console.log('Child - Render ' + this.props.name);
     return (
       <div>
         <h1>Profile Class Component</h1>

@@ -1,15 +1,18 @@
-const useRestaurant = (resId) => {
+import { FETCH_MENU_URL } from '../config';
+import { useState } from 'react';
+
+const useRestaurant = resId => {
   // Create & maintain state for fectching data logic
   const [restaurant, setRestaurant] = useState(null);
 
   // Get data from API
   useEffect(() => {
-    getRestaurantInfo();
+    getRestaurantInfo(); // data fetching
   }, []);
 
   async function getRestaurantInfo() {
     const data = await fetch(
-      'https://www.swiggy.com/dapi/menu/v4/full?lat=21.1189882&lng=79.04192739999999&menuId='+resId // fetching dynamic restaurant ID
+      FETCH_MENU_URL + resId, // fetching dynamic restaurant ID
     );
     const json = await data.json();
     console.log(json.data);
@@ -18,7 +21,6 @@ const useRestaurant = (resId) => {
 
   // Return retaurant data
   return restaurant;
-
-}
+};
 
 export default useRestaurant;

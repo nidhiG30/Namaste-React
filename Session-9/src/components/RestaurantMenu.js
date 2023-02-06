@@ -5,27 +5,11 @@ import Shimmer from './Shimmer';
 import useRestaurant from '../utils/useRestaurant';
 
 const RestaurantMenu = () => {
-  // How to read dynamic URL params
   const { resId } = useParams();
 
-  // const [restaurant, setRestaurant] = useState(null);
+  const restaurant = useRestaurant(resId); // data from useRestaurant() hook goes inside restaurant.
 
-  const restaurant = useRestaurant(resId);
-
-  useEffect(() => {
-    getRestaurantInfo();
-  }, []);
-
-  async function getRestaurantInfo() {
-    const data = await fetch(
-      'https://www.swiggy.com/dapi/menu/v4/full?lat=21.1189882&lng=79.04192739999999&menuId='+resId // fetching dynamic restaurant ID
-    );
-    const json = await data.json();
-    console.log(json.data);
-    setRestaurant(json.data);
-  }
-
-  return !restaurant ? ( // Making early return if the restaurant state was found to be 'null'
+  return !restaurant ? (
     <Shimmer />
   ) : (
     <div className='menu'>

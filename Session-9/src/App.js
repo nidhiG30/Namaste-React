@@ -9,6 +9,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Contact from './components/Contact';
 import RestaurantMenu from './components/RestaurantMenu';
 import Profile from './components/Profile';
+import Instamart from './components/Instamart';
 
 const AppLayout = () => {
   return (
@@ -29,10 +30,12 @@ const appRouter = createBrowserRouter([
       {
         path: '/about', // "/about" -> "about" (also valid)
         element: <About />,
-        children: [{
-          path: "profile", // parentPath/{path} ==> localhost:1234/about/profile
-          element: <Profile/>
-        }]
+        children: [
+          {
+            path: 'profile', // parentPath/{path} ==> localhost:1234/about/profile
+            element: <Profile />,
+          },
+        ],
       },
       {
         path: '/contact',
@@ -44,9 +47,13 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/restaurant/:resId', // 'id' could be 'resId'
-        element: <RestaurantMenu/>
-      }
-    ]
+        element: <RestaurantMenu />,
+      },
+      {
+        path: '/instamart', // keeps header and footer in instamart
+        element: <Instamart />,
+      },
+    ],
   },
 ]);
 

@@ -11,6 +11,7 @@ import RestaurantMenu from './components/RestaurantMenu';
 import Profile from './components/Profile';
 
 const Instamart = lazy(() => import('./components/Instamart'));
+// Upon On Demand Loading  -> Upon Render -> Suspend Loading
 
 const AppLayout = () => {
   return (

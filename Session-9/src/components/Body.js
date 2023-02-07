@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
 import { filterData } from '../utils/helper';
+import useOnline from '../utils/useOnline';
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
@@ -24,9 +25,9 @@ const Body = () => {
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards); // To put the data
   }
 
-  const offline = false;
+  const isOnline = useOnline();
 
-  if (offline) return <h1>Offline, please check your Internet connection</h1>
+  if (!isOnline) return <h1>Offline, please check your Internet connection</h1>
 
   if (!allRestaurants) return null; // Early return => (when no restaurant found, component not rendered)
 

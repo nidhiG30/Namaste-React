@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
 import Body from './components/Body';
 import Footer from './components/Footer';
-import About from './components/About';
 import Error from './components/Error';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Contact from './components/Contact';
@@ -13,6 +12,8 @@ import Shimmer from './components/Shimmer';
 
 const Instamart = lazy(() => import('./components/Instamart'));
 // Upon On Demand Loading  -> Upon Render -> Suspend Loading
+
+const About = lazy(() => import('./components/about'));
 
 const AppLayout = () => {
   return (
@@ -32,7 +33,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: '/about', // "/about" -> "about" (also valid)
-        element: <About />,
+        element: <Suspense fallback={<h1>Loading...</h1>}><About /></Suspense>,
         children: [
           {
             path: 'profile', // parentPath/{path} ==> localhost:1234/about/profile

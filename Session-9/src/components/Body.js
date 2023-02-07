@@ -24,6 +24,10 @@ const Body = () => {
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards); // To put the data
   }
 
+  const offline = false;
+
+  if (offline) return <h1>Offline, please check your Internet connection</h1>
+
   if (!allRestaurants) return null; // Early return => (when no restaurant found, component not rendered)
 
   return allRestaurants?.length === 0 ? (

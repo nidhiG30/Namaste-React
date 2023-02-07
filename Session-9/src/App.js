@@ -9,6 +9,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Contact from './components/Contact';
 import RestaurantMenu from './components/RestaurantMenu';
 import Profile from './components/Profile';
+import Shimmer from './components/Shimmer';
 
 const Instamart = lazy(() => import('./components/Instamart'));
 // Upon On Demand Loading  -> Upon Render -> Suspend Loading
@@ -54,7 +55,7 @@ const appRouter = createBrowserRouter([
       {
         path: '/instamart', // keeps header and footer in instamart
         element: (
-          <Suspense>
+          <Suspense fallback={<Shimmer />}>
             <Instamart />
           </Suspense>
         ),

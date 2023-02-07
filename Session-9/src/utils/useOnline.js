@@ -1,7 +1,12 @@
-const useOnline = () => {
-  
+import { useState } from "react";
 
-  return // returns true or false, this will be used to show the internet status
+const useOnline = () => {
+  const isOnline = () => {
+    const [isOnline, setIsOnline] = useState();
+    
+  }
+
+  return isOnline; // returns true or false, this will be used to show the internet status
 
 };
 

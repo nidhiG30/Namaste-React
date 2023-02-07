@@ -25,11 +25,11 @@ const Body = () => {
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards); // To put the data
   }
 
-  const isOnline = useOnline();
+  // const isOnline = useOnline();
 
-  if (!isOnline) return <h1>Offline, please check your Internet connection</h1>
+  // if (!isOnline) return <h1>Offline, please check your Internet connection</h1>
 
-  if (!allRestaurants) return null; // Early return => (when no restaurant found, component not rendered)
+  // if (!allRestaurants) return null; // Early return => (when no restaurant found, component not rendered)
 
   return allRestaurants?.length === 0 ? (
     <Shimmer />

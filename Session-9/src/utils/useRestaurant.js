@@ -7,10 +7,10 @@ const useRestaurant = resId => {
 
   // Get data from API
   useEffect(() => {
-    getRestaurantInfo(); // data fetching
+    getRestaurantMenu(); // data fetching
   }, []);
 
-  async function getRestaurantInfo() {
+  async function getRestaurantMenu() {
     const data = await fetch(
       FETCH_MENU_URL + resId, // fetching dynamic restaurant ID
     );

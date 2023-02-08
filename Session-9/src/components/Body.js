@@ -22,14 +22,8 @@ const Body = () => {
     const json = await data.json();
 
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards); // To put the data
-    setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards); // To put the data
+    setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
-
-  // const isOnline = useOnline();
-
-  // if (!isOnline) return <h1>Offline, please check your Internet connection</h1>
-
-  // if (!allRestaurants) return null; // Early return => (when no restaurant found, component not rendered)
 
   return allRestaurants?.length === 0 ? (
     <Shimmer />

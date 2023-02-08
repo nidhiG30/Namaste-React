@@ -25,6 +25,12 @@ const Body = () => {
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
 
+  if (!allRestaurants) return null;
+
+  const searchBtnCSS = {
+    backgroundColor: "red"
+  }
+
   return allRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
@@ -40,7 +46,7 @@ const Body = () => {
           }}
         />
         <button
-          className='search-btn'
+          style={searchBtnCSS}
           onClick={() => {
             // need to filter the data from restaurantList
             const data = filterData(searchText, allRestaurants);

@@ -44,3 +44,7 @@
 .menu {
   display: flex;
 }
+
+.search-btn {
+  background-color: green;
+}

@@ -1,5 +1,5 @@
 import { FETCH_MENU_URL } from '../config';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const useRestaurant = resId => {
   // Create & maintain state for fectching data logic
@@ -15,7 +15,6 @@ const useRestaurant = resId => {
       FETCH_MENU_URL + resId, // fetching dynamic restaurant ID
     );
     const json = await data.json();
-    console.log(json.data);
     setRestaurant(json.data);
   }
 

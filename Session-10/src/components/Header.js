@@ -6,7 +6,7 @@ import useOnline from '../utils/useOnline';
 const Logo = () => (
   <a href='/'>
     <img
-      className='logo'
+      className='h-28 p-2'
       src={UpdatedLogo} // Instead of CDN link, we used locally stored image
       alt='logo'
     />

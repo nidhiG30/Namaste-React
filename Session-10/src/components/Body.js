@@ -42,7 +42,7 @@ const Body = () => {
           }}
         />
         <button
-          className='p-2 m-2 bg-purple-900 text-white rounded-md'
+          className='p-2 m-2 bg-green-900 hover:bg-green-400 text-white rounded-md'
           onClick={() => {
             // need to filter the data from restaurantList
             const data = filterData(searchText, allRestaurants);
@@ -55,7 +55,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className='restaurant-list'>
+      <div className='flex flex-wrap'>
         {filteredRestaurants.map(restaurant => {
           return (
             <Link // Added link on RestaurantCard

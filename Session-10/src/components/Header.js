@@ -19,7 +19,7 @@ export const Header = () => {
   const isOnline = useOnline();
 
   return (
-    <div className='header'>
+    <div className='flex'>
       <Logo />
       <div className='nav-items'>
         <ul>

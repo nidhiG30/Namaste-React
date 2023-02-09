@@ -31,7 +31,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className='search-container'>
+      <div className='search-container p-5 bg-pink-50 my-2'>
         <input
           type='text'
           className='search-input'
@@ -42,9 +42,7 @@ const Body = () => {
           }}
         />
         <button
-          style={{
-            backgroundColor: "red"
-          }}
+          className='p-2 m-2 bg-purple-900 text-white'
           onClick={() => {
             // need to filter the data from restaurantList
             const data = filterData(searchText, allRestaurants);

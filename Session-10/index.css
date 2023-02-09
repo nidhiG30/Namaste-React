@@ -1,50 +1,9 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  margin: 0.6rem;
-  border: 1px solid black;
-}
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
 
-.nav-items > ul {
-  list-style-type: none; /* it removes the default bullet dots in front of our list items*/
-  display: flex; /* The listed items get in one line*/
-}
+/* Above can be written as follows */
 
-.nav-items > ul > li {
-  padding: 10px;
-}
-
-.logo {
-  width: 80px;
-}
-
-.card {
-  width: 200px;
-  border: 1px solid black;
-  padding: 0.6rem;
-  margin: 0.6rem;
-}
-
-.card > img {
-  width: 100%; /* Image will resize it to width of the card */
-}
-
-.restaurant-list {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.shimmer-card {
-  width: 200px;
-  height: 200px;
-  background-color: lightgray;
-  margin: 20px;
-}
-
-.menu {
-  display: flex;
-}
-
-.search-btn {
-  background-color: green;
-}
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";

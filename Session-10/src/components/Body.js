@@ -42,7 +42,7 @@ const Body = () => {
           }}
         />
         <button
-          className='p-2 m-2 bg-purple-900 text-white'
+          className='p-2 m-2 bg-purple-900 text-white rounded-md'
           onClick={() => {
             // need to filter the data from restaurantList
             const data = filterData(searchText, allRestaurants);

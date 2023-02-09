@@ -19,24 +19,24 @@ export const Header = () => {
   const isOnline = useOnline();
 
   return (
-    <div className='flex'>
+    <div className='flex justify-between bg-pink-50 shadow-lg'>
       <Logo />
       <div className='nav-items'>
-        <ul>
-          <li>
+        <ul className='flex py-10'>
+          <li className='px-2'>
             <Link to='/'>Home</Link>
           </li>
-          <li>
+          <li className='px-2'>
             <Link to='/about'>About</Link>
           </li>
-          <li>
+          <li className='px-2'>
             <Link to='/contact'>Contact</Link>
           </li>
-          <li>Cart</li>
-          <li>
+          <li className='px-2'>Cart</li>
+          <li className='px-2'>
             <Link to='/instamart'>Instamart</Link>
           </li>
-        </ul>
+        </ul> 
       </div>
       <h1>{isOnline ? '✅' : '🔴'}</h1>
       {isLoggedIn ? (

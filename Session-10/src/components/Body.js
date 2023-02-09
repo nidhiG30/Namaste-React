@@ -34,7 +34,7 @@ const Body = () => {
       <div className='search-container p-5 bg-pink-50 my-2'>
         <input
           type='text'
-          className='search-input'
+          className='focus:bg-green-50 p-2 m-2'
           placeholder='Search'
           value={searchText}
           onChange={e => {

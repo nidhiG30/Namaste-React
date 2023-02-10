@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { filterData } from '../utils/helper';
 import useOnline from '../utils/useOnline';
 
-const Body = () => {
+const Body = ({user}) => {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState('');
@@ -62,7 +62,7 @@ const Body = () => {
               to={'/restaurant/' + restaurant.data.id} // passing dynamic ID to the restaurant
               key={restaurant.data.id}
             >
-              <RestaurantCard {...restaurant.data} />
+              <RestaurantCard {...restaurant.data} user={user} />
             </Link>
           ); // Here the "key" remains unique for every element that gets added to the DOM, reconciliation.
         })}

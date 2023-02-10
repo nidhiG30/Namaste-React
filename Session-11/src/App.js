@@ -47,7 +47,10 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/',
-        element: <Body />,
+        element: <Body user={{
+          name: "Namaste React",
+          email: "xyz@namastedev.com"
+        }}/>,
       },
       {
         path: '/restaurant/:resId', // 'id' could be 'resId'

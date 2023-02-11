@@ -6,7 +6,26 @@ const Section = ({ title, description }) => {
   return (
     <div className='border border-black p-2 m-2'>
       <h1 className='font-bold text-xl'>{title}</h1>
-      <p>{description}</p>
+      {
+        // If isVisible is false, means we cannot see the description, means the button upon clicking should SHOW the description and vice versa to hide.
+        isVisible ? (
+          <button
+            onClick={() => setIsVisible(false)}
+            className='cursor-pointer underline'
+          >
+            Hide
+          </button>
+        ) : (
+          <button
+            onClick={() => setIsVisible(true)}
+            className='cursor-pointer underline'
+          >
+            Show
+          </button>
+        )
+      }
+
+      {isVisible && <p>{description}</p>}
     </div>
   );
 };

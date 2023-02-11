@@ -31,6 +31,8 @@ const Instamart = () => {
   return (
     <div>
       <h1 className='text-3xl p-2 m-2 font-bold'>Instamart</h1>
+
+      {/* Every <Section/> component has its OWN prop and OWN state which CANNOT be shared with other components. */}
       <Section
         title={'About Instamart'}
         description={

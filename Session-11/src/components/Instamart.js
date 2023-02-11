@@ -6,23 +6,7 @@ const Section = ({ title, description }) => {
   return (
     <div className='border border-black p-2 m-2'>
       <h1 className='font-bold text-xl'>{title}</h1>
-      {isVisible ? (
-        <button
-          onClick={() => setIsVisible(false)}
-          className='cursor-pointer underline'
-        >
-          Hide
-        </button>
-      ) : (
-        <button
-          onClick={() => setIsVisible(true)}
-          className='cursor-pointer underline'
-        >
-          Show
-        </button>
-      )}
-
-      {isVisible && <p>{description}</p>}
+      <p>{description}</p>
     </div>
   );
 };
@@ -31,8 +15,6 @@ const Instamart = () => {
   return (
     <div>
       <h1 className='text-3xl p-2 m-2 font-bold'>Instamart</h1>
-
-      {/* Every <Section/> component has its OWN prop and OWN state which CANNOT be shared with other components. */}
       <Section
         title={'About Instamart'}
         description={

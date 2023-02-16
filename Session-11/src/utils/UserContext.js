@@ -1,6 +1,10 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 const UserContext = createContext({
-  name: 'Dummy Name',
-  email: 'dummy@gmail.com'
+  user: {
+    name: 'Dummy Name',
+    email: 'dummy@gmail.com',
+  },
 });
+
+export default UserContext;

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
 import Body from './components/Body';
@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import RestaurantMenu from './components/RestaurantMenu';
 import Profile from './components/Profile';
 import Shimmer from './components/Shimmer';
+import UserContext from './utils/UserContext';
 
 const Instamart = lazy(() => import('./components/Instamart'));
 // Upon On Demand Loading  -> Upon Render -> Suspend Loading
@@ -16,12 +17,21 @@ const Instamart = lazy(() => import('./components/Instamart'));
 const About = lazy(() => import('./components/about'));
 
 const AppLayout = () => {
+  const [user, setUser] = useState({
+    name: 'Nidhi Gadge',
+    email: 'gadgenidhi9@gmail.com',
+  });
+
   return (
-    <>
+    <UserContext.Provider
+      value={{
+        user: user
+      }}
+    >
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </UserContext.Provider>
   );
 };
 
@@ -33,7 +43,11 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: '/about', // "/about" -> "about" (also valid)
-        element: <Suspense fallback={<h1>Loading...</h1>}><About /></Suspense>,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <About />
+          </Suspense>
+        ),
         children: [
           {
             path: 'profile', // parentPath/{path} ==> localhost:1234/about/profile
@@ -47,10 +61,14 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/',
-        element: <Body user={{
-          name: "Namaste React",
-          email: "xyz@namastedev.com"
-        }}/>,
+        element: (
+          <Body
+            user={{
+              name: 'Namaste React',
+              email: 'xyz@namastedev.com',
+            }}
+          />
+        ),
       },
       {
         path: '/restaurant/:resId', // 'id' could be 'resId'

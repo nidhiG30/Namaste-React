@@ -69,7 +69,7 @@ const Body = () => {
           onChange={e =>
             setUser({
               ...user,
-              email: 'newemail@gmail.com', // this will update the 'email' that was default present in 'user'
+              email: e.target.value, // this will update the 'email' that was default present in 'user'
             })
           }
         ></input>

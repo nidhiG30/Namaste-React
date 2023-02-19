@@ -10,6 +10,7 @@ import RestaurantMenu from './components/RestaurantMenu';
 import Profile from './components/Profile';
 import Shimmer from './components/Shimmer';
 import UserContext from './utils/UserContext';
+import { Provider } from 'react-redux';
 
 const Instamart = lazy(() => import('./components/Instamart'));
 // Upon On Demand Loading  -> Upon Render -> Suspend Loading
@@ -23,16 +24,18 @@ const AppLayout = () => {
   });
 
   return (
-    <UserContext.Provider
-      value={{
-        user: user,
-        setUser: setUser,
-      }}
-    >
-      <Header />
-      <Outlet />
-      <Footer />
-    </UserContext.Provider>
+    <Provider>
+      <UserContext.Provider
+        value={{
+          user: user,
+          setUser: setUser,
+        }}
+      >
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
+    </Provider>
   );
 };
 

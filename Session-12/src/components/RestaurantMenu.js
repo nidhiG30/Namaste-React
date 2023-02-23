@@ -13,15 +13,14 @@ const RestaurantMenu = () => {
 
   const dispatch = useDispatch();
 
-  const handleAddItem = () => {
-    // on click of Add Item button created below this function is called
-    dispatch(addItem('Grapes')); // dispatch(action (pass the passload)).
-  };
+  const addFoodItem = (item) => {
+    dispatch(addItem(item));
+  }
 
   return !restaurant ? (
     <Shimmer />
   ) : (
-    <div className='menu'>
+    <div className='flex'>
       <div>
         <h1>Restaurant Id: {resId}</h1> {/* 'id' could be 'resId' */}
         <h2>{restaurant?.name}</h2>
@@ -31,19 +30,19 @@ const RestaurantMenu = () => {
         <h3>{restaurant?.avgRating} ⭐</h3>
         <h3>{restaurant?.costForTwoMsg}</h3>
       </div>
-      <div>
-        <button
-          className='p-2 m-5 bg-green-100'
-          onClick={() => handleAddItem()}
-        >
-          Add Item
-        </button>
-      </div>
-      <div>
+      <div className='p-5'>
         <h1>Menu</h1>
         <ul>
           {Object.values(restaurant?.menu?.items).map(item => (
-            <li key={item.id}>{item.name}</li>
+            <li key={item.id}>
+              {item.name} -{' '}
+              <button
+                className='p-1 bg-green-100'
+                onClick={() => addFoodItem(item)}
+              >
+                Add
+              </button>
+            </li>
           ))}
         </ul>
       </div>

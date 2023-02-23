@@ -3,7 +3,7 @@ import UpdatedLogo from '../assets/img/khaana.png';
 import { Link } from 'react-router-dom';
 import useOnline from '../utils/useOnline';
 import UserContext from '../utils/UserContext';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const Logo = () => (
   <a href='/'>
@@ -41,7 +41,9 @@ export const Header = () => {
           <li className='px-2'>
             <Link to='/instamart'>Instamart</Link>
           </li>
-          <li className='px-2'>Cart - {cartItems.length} items</li>
+          <li className='px-2'>
+            <Link to='/cart'>Cart - {cartItems.length} items</Link>
+          </li>
         </ul>
       </div>
       <h1>{isOnline ? '✅' : '🔴'}</h1>

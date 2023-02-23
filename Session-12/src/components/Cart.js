@@ -7,7 +7,11 @@ const Cart = () => {
   return (
     <div>
       <h1 className='font-bold text-3xl'>Cart Items - {cartItems.length}</h1>
-      <FoodItem {...cartItems[0]}/>
+      <div className='flex'>
+        {cartItems.map(item => (
+          <FoodItem key={item.id} {...item} />
+        ))}
+      </div>
     </div>
   );
 };

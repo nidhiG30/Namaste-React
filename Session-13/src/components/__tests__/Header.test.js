@@ -13,7 +13,10 @@ test('Logo should load on rendering header', () => {
       </Provider>
     </StaticRouter>,
   );
-  console.log(header);
+  
+  const logo = header.getAllByTestId("logo");
+
+  console.log(logo);
 
   // Check of logo is loaded
 });

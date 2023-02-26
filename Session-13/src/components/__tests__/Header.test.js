@@ -13,10 +13,21 @@ test('Logo should load on rendering header', () => {
       </Provider>
     </StaticRouter>,
   );
-  
-  const logo = header.getAllByTestId("logo");
-
-  console.log(logo);
 
   // Check of logo is loaded
+
+  const logo = header.getAllByTestId('logo');
+
+  // console.log(logo[0]);
+
+  // expect(logo).toBe("dummyLogo.png");
+  // expect(logo.innerHTML).toBe("dummyLogo.png");
+  // expect(logo.childern).toBe("dummyLogo.png");
+  // expect(logo.props).toBe("dummyLogo.png");
+  // expect(logo.src).toBe("dummyLogo.png");
+  // expect(logo[0].src).toBe("dummyLogo.png");
+  // ALL ABOVE ASSERTIONS GOT FAILED.
+
+  expect(logo[0].src).toBe("http://localhost/dummy.png");
+
 });

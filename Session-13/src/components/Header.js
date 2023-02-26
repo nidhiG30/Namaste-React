@@ -47,7 +47,7 @@ export const Header = () => {
           </li>
         </ul>
       </div>
-      <h1>{isOnline ? '✅' : '🔴'}</h1>
+      <h1 data-testid="online-status">{isOnline ? '✅' : '🔴'}</h1>
       <span className='p-10 font-bold text-red-900'>{user.name}</span>
       {isLoggedIn ? (
         <button onClick={() => setIsLoggedIn(false)}>Logout</button>

@@ -31,3 +31,21 @@ test('Logo should load on rendering header', () => {
   expect(logo[0].src).toBe("http://localhost/dummy.png");
 
 });
+
+test('Online status should be green on rendering header', () => {
+  // Load Header
+  const header = render(
+    <StaticRouter>
+      <Provider store={store}>
+        <Header />
+      </Provider>
+    </StaticRouter>,
+  );
+
+  // Check of logo is loaded
+
+  const onlineStatus = header.getByTestId('online-status'); // instead of using getAllByTestId
+
+  expect(onlineStatus.innerHTML).toBe("✅");
+
+});

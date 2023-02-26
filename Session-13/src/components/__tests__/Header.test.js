@@ -49,3 +49,21 @@ test('Online status should be green on rendering header', () => {
   expect(onlineStatus.innerHTML).toBe("✅");
 
 });
+
+test('Cart should have 0 items on rendering header', () => {
+  // Load Header
+  const header = render(
+    <StaticRouter>
+      <Provider store={store}>
+        <Header />
+      </Provider>
+    </StaticRouter>,
+  );
+
+  // Check of logo is loaded
+
+  const cart = header.getByTestId('cart'); // instead of using getAllByTestId
+
+  expect(cart.innerHTML).toBe("Cart - 0 items");
+
+});

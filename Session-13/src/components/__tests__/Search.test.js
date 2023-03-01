@@ -7,7 +7,9 @@ import { RESTAURANT_DATA } from '../../mocks/data.js';
 
 global.fetch = jest.fn(() => {
   return Promise.resolve({
-    json: Promise.resolve(RESTAURANT_DATA),
+    json: () => {
+      return Promise.resolve(RESTAURANT_DATA);
+    },
   });
 });
 

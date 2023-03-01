@@ -6,7 +6,7 @@ import { StaticRouter } from 'react-router-dom/server';
 import { RESTAURANT_DATA } from '../../mocks/data.js';
 
 global.fetch = jest.fn(() => {
-  Promise.resolve({
+  return Promise.resolve({
     json: Promise.resolve(RESTAURANT_DATA),
   });
 });

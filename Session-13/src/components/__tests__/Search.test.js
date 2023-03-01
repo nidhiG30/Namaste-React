@@ -23,9 +23,9 @@ test('Shimmer should load on Home Page', () => {
     </StaticRouter>,
   );
 
-  const shimmer = body.getByTestId("shimmer");
+  const shimmer = body.getByTestId("shimmer-ui"); // intentionally provided wrong ID inside 'getByTestId()'.
 
-  expect(shimmer).toBeInTheDocument();
+  expect(shimmer.innerHTML).toBeInTheDocument(); // checks what is rendered inside Shimmer.
 
   console.log(shimmer);
 });

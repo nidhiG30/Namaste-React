@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import store from '../../utils/store.js';
 import { StaticRouter } from 'react-router-dom/server';
 import { RESTAURANT_DATA } from '../../mocks/data.js';
+import "@testing-library/jest-dom";
 
 global.fetch = jest.fn(() => {
   return Promise.resolve({
@@ -23,5 +24,8 @@ test('Shimmer should load on Home Page', () => {
   );
 
   const shimmer = body.getByTestId("shimmer");
+
+  expect(shimmer).toBeInTheDocument();
+
   console.log(shimmer);
 });

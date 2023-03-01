@@ -13,7 +13,7 @@ global.fetch = jest.fn(() => {
   });
 });
 
-test('Search Results on Home Page', () => {
+test('Shimmer should load on Home Page', () => {
   const body = render(
     <StaticRouter>
       <Provider store={store}>
@@ -22,6 +22,6 @@ test('Search Results on Home Page', () => {
     </StaticRouter>,
   );
 
-  const searchBtn = body.getByTestId("search-btn");
-  console.log(searchBtn);
+  const shimmer = body.getByTestId("shimmer");
+  console.log(shimmer);
 });

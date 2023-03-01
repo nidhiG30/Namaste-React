@@ -44,6 +44,7 @@ const Body = () => {
           }}
         />
         <button
+          data-testid="search-btn"
           className='p-2 m-2 bg-green-900 hover:bg-green-400 text-white rounded-md'
           onClick={() => {
             // need to filter the data from restaurantList

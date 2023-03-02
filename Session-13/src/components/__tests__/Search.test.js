@@ -39,11 +39,11 @@ test('Restaurant should load on Home Page', async () => {
     </StaticRouter>,
   );
 
-  await waitFor(() => expect(screen.getByTestId('search-btn')));
+  await waitFor(() => expect(body.getByTestId('search-btn')));
 
-  const shimmer = body.getByTestId('shimmer');
+  const resList = body.getByTestId('res-list');
 
-  expect(shimmer.children.length).toBe(10);
+  expect(resList.children.length).toBe(10);
 
   console.log(shimmer);
 });

@@ -43,7 +43,7 @@ test('Restaurant should load on Home Page', async () => {
 
   const resList = body.getByTestId('res-list');
 
-  expect(resList.children.length).toBe(10);
+  expect(resList.children.length).toBe(15);
 
   console.log(shimmer);
 });

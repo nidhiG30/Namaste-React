@@ -35,6 +35,7 @@ const Body = () => {
     <>
       <div className='search-container p-5 bg-pink-50 my-2'>
         <input
+          data-testid='search-input'
           type='text'
           className='focus:bg-green-50 p-2 m-2'
           placeholder='Search'

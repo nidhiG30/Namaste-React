@@ -15,7 +15,7 @@ class Profile extends React.Component {
   // Method used to call APIs
   componentDidMount() {
     this.timer = setInterval(() => {
-      console.log("Namaste React OP");
+      console.log('Namaste React OP');
     }, 1000);
 
     // console.log('Child - ComponentDidMount');
@@ -52,5 +52,3 @@ class Profile extends React.Component {
 }
 
 export default Profile;
-
-// support@hdfcbank.com

@@ -3,7 +3,7 @@ import Button from './Button'
 
 const list = ["All", "Live", "Gaming", "Songs", "Soccer", "Badminton", "Cooking", "Mantras", "News", "Sadhguru", "Tourism", "Comedy", "Podcasts"];
 
-const btnItems = list.map(items => <Button name={items}/>)
+const btnItems = list.map(items => <Button name={items} key={items}/>)
 
 const ButtonList = () => {
   return (

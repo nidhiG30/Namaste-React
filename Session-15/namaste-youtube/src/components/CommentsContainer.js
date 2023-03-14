@@ -9,7 +9,30 @@ const commentsData = [
       {
         name: 'Nidhi Gadge',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        replies: [],
+        replies: [
+          {
+            name: 'Nidhi Gadge',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            replies: [
+              {
+                name: 'Nidhi Gadge',
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                replies: [],
+              },
+              {
+                name: 'Nidhi Gadge',
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                replies: [
+                  {
+                    name: 'Nidhi Gadge',
+                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                    replies: [],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
     ],
   },

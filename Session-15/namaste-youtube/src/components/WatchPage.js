@@ -13,10 +13,10 @@ const WatchPage = () => {
   });
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col w-2/3'>
       <div className='px-5'>
         <iframe
-          width='1200'
+          width='100%'
           height='600'
           src={'https://www.youtube.com/embed/' + searchParams.get('v')}
           title='YouTube video player'
@@ -25,7 +25,7 @@ const WatchPage = () => {
           allowFullScreen
         ></iframe>
       </div>
-      <CommentsContainer/>
+      <CommentsContainer />
     </div>
   );
 };

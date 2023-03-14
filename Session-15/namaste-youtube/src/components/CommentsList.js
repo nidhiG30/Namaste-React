@@ -7,9 +7,7 @@ const CommentsList = ({ comments }) => {
 
       {/* Replies = List of comments */}
       <div className='pl-5 border border-l-black ml-5'>
-        <Comment key={index} data={comment} />
-        <Comment key={index} data={comment} />
-        <Comment key={index} data={comment} /> 
+        <CommentsList comments={comment.replies}/>   
       </div>
     </div>
   ));

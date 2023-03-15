@@ -9,26 +9,26 @@ const LiveChat = () => {
   const chatMessages = useSelector(store => store.chat.messages);
 
   useEffect(() => {
-
     // API Polling
     const i = setInterval(() => {
       console.log('API Polling');
 
-      dispatch(addMessage({
-        name: 'Nidhi Gadge',
-        message: "Lorem Ipsum Dolor Site Amet 🚀"
-      }))
-    }, 2000)
+      dispatch(
+        addMessage({
+          name: 'Nidhi Gadge',
+          message: 'Lorem Ipsum Dolor Site Amet 🚀',
+        }),
+      );
+    }, 2000);
 
     return () => clearInterval(i);
   }, []);
 
   return (
     <div className='w-full h-[600px] ml-2 p-2 border border-black bg-slate-100 rounded-lg'>
-      <ChatMessage
-        name='Nidhi Gadge'
-        message='This is Namaste React Live! 🙏'
-      />
+      {chatMessages.map((chatMessage, index) => (
+        <ChatMessage key={index} name={chatMessage.name} message={chatMessage.message} />
+      ))}
     </div>
   );
 };

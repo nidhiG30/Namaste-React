@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addMessage } from '../utils/chatSlice';
 import ChatMessage from './ChatMessage';
 
 const LiveChat = () => {
   const dispatch = useDispatch();
+
+  const chatMessages = useSelector(store => store.chat.messages);
 
   useEffect(() => {
 

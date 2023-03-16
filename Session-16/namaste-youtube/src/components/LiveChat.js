@@ -36,7 +36,13 @@ const LiveChat = () => {
           />
         ))}
       </div>
-      <div className='w-full p-2 ml-2 border border-black'>
+      <form
+        className='w-full p-2 ml-2 border border-black'
+        onSubmit={e => {
+          e.preventDefault();
+          console.log("On form submit", liveMessage);
+        }}
+      >
         <input
           className='border border-blue-600 w-5/6 px-2'
           type='text'
@@ -46,7 +52,7 @@ const LiveChat = () => {
           }}
         ></input>
         <button className='px-2 mx-4 bg-green-100'>Send</button>
-      </div>
+      </form>
     </>
   );
 };

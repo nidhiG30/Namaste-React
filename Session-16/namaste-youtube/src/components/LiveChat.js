@@ -20,7 +20,7 @@ const LiveChat = () => {
           message: makeRandomMessage(20) + '🚀',
         }),
       );
-    }, 500);
+    }, 1000);
 
     return () => clearInterval(i);
   }, []);
@@ -40,7 +40,14 @@ const LiveChat = () => {
         className='w-full p-2 ml-2 border border-black'
         onSubmit={e => {
           e.preventDefault();
-          console.log("On form submit", liveMessage);
+          // console.log('On form submit', liveMessage);
+          dispatch(
+            addMessage({
+              name: 'Nidhi Gadge',
+              message: liveMessage,
+            }),
+          );
+          setLiveMessage('');
         }}
       >
         <input

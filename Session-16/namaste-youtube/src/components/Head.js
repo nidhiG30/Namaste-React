@@ -25,7 +25,7 @@ const Head = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [searchQuery]);
+  });
 
   const getSearchSuggestions = async () => {
     // console.log('API Call - ' + searchQuery);
